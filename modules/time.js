@@ -1,10 +1,14 @@
-var os = require('os');
 
 function time(uptime) {
-    var sek = uptime;
-    var min = (uptime / 60).toFixed(0);
-    var hour = (uptime / 3600).toFixed(0);
-    return sek + ' sec., ' + min + ' min., ' + hour + ' h., ';
+    var hour = Math.floor(uptime / 3600);
+    var min = Math.floor((uptime - (hour * 3600)) / 60);
+    var sec = uptime - (hour * 3600) - (min * 60);
+    
+    if (uptime < 3600) {
+        return min + ' min., ' + sec + ' sec. ';
+    } else {
+        return hour + ' h., ' + min + ' min., ' + sec + ' sec. ';
+    }
 }
 
 exports.print = time;
