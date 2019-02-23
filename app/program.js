@@ -1,5 +1,5 @@
 var OSinfo = require('../modules/OSinfo');
-
+var time = require('../modules/time');
 process.stdin.setEncoding('utf-8');
 
 process.stdin.on('readable', function () {
